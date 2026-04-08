@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: /data/tilld.db
+      PORT: 3002
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+    env_file:
+      - ./frontend/.env.local
+    environment:
+      NEXT_PUBLIC_API_URL: http://backend:3002
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"

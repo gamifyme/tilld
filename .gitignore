@@ -1,0 +1,16 @@
+node_modules/
+.next/
+dist/
+*.log
+*.stackdump
+*.tsbuildinfo
+
+.env
+.env.local
+
+.claude/
+.codex/
+
+/data/*.db
+/data/*.db-*
+/data/persist-check.txt
