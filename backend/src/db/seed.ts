@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+import bcrypt from "bcryptjs";
 
 import { createDb, createSqliteConnection } from "./client";
 import {
@@ -32,16 +33,19 @@ async function seed() {
     await db.delete(activities);
     await db.delete(users);
 
+    const alexPasswordHash = await bcrypt.hash("password123", 10);
+    const blairPasswordHash = await bcrypt.hash("password123", 10);
+
     await db.insert(users).values([
       {
         email: "alex@example.com",
-        passwordHash: "hash-alex",
+        passwordHash: alexPasswordHash,
         displayName: "Alex",
         createdAt: "2026-04-01T08:00:00.000Z"
       },
       {
         email: "blair@example.com",
-        passwordHash: "hash-blair",
+        passwordHash: blairPasswordHash,
         displayName: "Blair",
         createdAt: "2026-04-01T08:05:00.000Z"
       }
