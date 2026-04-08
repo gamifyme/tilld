@@ -4,7 +4,7 @@
 TBD - created by archiving change phase-0-project-scaffold. Update Purpose after archive.
 ## Requirements
 ### Requirement: Backend service starts on port 3002
-The backend SHALL be a Fastify + TypeScript project that starts successfully on port 3002 with no errors.
+The backend SHALL be a Fastify + TypeScript project that starts successfully on port 3002 with no errors, keeps `GET /health` public, and requires authentication for non-public application routes.
 
 #### Scenario: Health endpoint returns 200
 - **WHEN** a GET request is made to `/health`
@@ -13,6 +13,10 @@ The backend SHALL be a Fastify + TypeScript project that starts successfully on 
 #### Scenario: TypeScript compiles without errors
 - **WHEN** `tsc --noEmit` is run in the `backend/` directory
 - **THEN** no TypeScript errors are reported
+
+#### Scenario: Protected route rejects anonymous request
+- **WHEN** a request is made to a protected backend route without a valid Bearer token
+- **THEN** the backend responds with HTTP 401
 
 ### Requirement: Drizzle ORM is installed and configured
 The backend SHALL have Drizzle ORM and `better-sqlite3` installed, with a `drizzle.config.ts` pointing to the SQLite database file at `/data/tilld.db`.
