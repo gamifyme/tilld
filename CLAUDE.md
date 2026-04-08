@@ -244,6 +244,11 @@ NEXT_PUBLIC_API_URL=https://tilld.yourdomain.com/api
 - No inline SQL — use Drizzle query builder throughout
 - Prefer explicit over clever
 
+## Commit Policy
+
+- Use Conventional Commits for all commit messages
+- Do not add `Co-authored-by` trailers or other agent attribution unless explicitly requested
+
 ---
 
 ## Auth

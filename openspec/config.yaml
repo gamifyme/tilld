@@ -8,6 +8,10 @@ schema: spec-driven
 #     Tech stack: TypeScript, React, Node.js
 #     We use conventional commits
 #     Domain: e-commerce platform
+context: |
+  Tech stack: TypeScript, Next.js, Fastify, Drizzle ORM, SQLite
+  Use Conventional Commits for commit messages
+  Do not add Co-authored-by trailers or agent attribution unless explicitly requested
 
 # Per-artifact rules (optional)
 # Add custom rules for specific artifacts.
